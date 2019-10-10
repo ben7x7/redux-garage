@@ -10,6 +10,7 @@ import { createHistory as history } from 'history';
 
 // internal modules
 import CarsIndex from './containers/cars_index';
+import CarsShow from './containers/cars_show';
 
 import '../assets/stylesheets/application.scss';
 
@@ -42,6 +43,7 @@ ReactDOM.render(
       <div className="view-container">
         <Switch>
           <Route path="/" exact component={CarsIndex} />
+          <Route path="/cars/:id" component={CarsShow} />
         </Switch>
       </div>
     </Router>
