@@ -13,9 +13,10 @@ import CarsIndex from './containers/cars_index';
 
 import '../assets/stylesheets/application.scss';
 
-import carsReducer from './reducers/cars_reducer.js';
+import carsReducer from './reducers/cars_reducer';
 // State and reducers
-const garageName = prompt("What is your garage?") || `garage${Math.floor(10 + (Math.random() * 90))}`;
+const garageName = `garage${Math.floor(10 + (Math.random() * 90))}`;  // prompt("What is your garage?") ||
+
 const initialState = {
   garage: garageName,
   cars: [
@@ -38,9 +39,11 @@ const store = createStore(reducers, initialState, middlewares);
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <Switch>
-        <Route path="/" exact component={CarsIndex} />
-      </Switch>
+      <div className="view-container">
+        <Switch>
+          <Route path="/" exact component={CarsIndex} />
+        </Switch>
+      </div>
     </Router>
   </Provider>,
   document.querySelector('.container')
