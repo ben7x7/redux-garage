@@ -9,7 +9,7 @@ import Aside from '../components/aside';
 
 class CarsIndex extends Component {
   componentWillMount() {
-    //this.props.fetchCars(this.props.garage);
+    this.props.fetchCars(this.props.garage);
   }
 
   render() {
@@ -23,13 +23,13 @@ class CarsIndex extends Component {
     }
 
     return [
-      <Aside key="aside" garage={this.props.garage}>
+      <Aside key="aside" garage={this.props.garage} >
         <Link to="/cars/new">Add a car</Link>
       </Aside>,
       <div className="list-container" key="cars" >
         {this.props.cars.map((car) => {
           return (
-            <div className="car-smallad" key={car.id}>
+            <div key={car.id} className="car-smallad" >
               <Link to={`/cars/${car.id}`} key={car.id}></Link>
               <img className="car-logo" src="/assets/images/car-logo.svg" />
               <div className="car-details">
